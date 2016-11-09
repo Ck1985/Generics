@@ -21,6 +21,6 @@ class Holder4<T>{
 
 public class Example2 {
     public static void main(String[] args){
-        Holder4<Rodent> holder4 = new Holder<Rodent>(new Rodent(), new Rat(), new Mouse());
+        //Holder4<Rodent> holder4 = new Holder<Rodent>(new Rodent(), new Rat(), new Mouse());
     }
 }
