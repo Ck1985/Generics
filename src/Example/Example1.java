@@ -29,8 +29,10 @@ public class Example1 {
         Rat rat2 = (Rat)holderPet2.getA();
 
         Holder<Pet> holderPet3 = new Holder<Pet>(new Pet());
-        Mouse mouse = (Mouse)holderPet3.getA();
-        holderPet3.setA(new Rat());
-        Rat rat3 = (Rat)holderPet3.getA();
+        Pet pet3 = holderPet3.getA();
+        System.out.println(pet3);
+        //also hold subtype of Pet
+        holderPet3.setA(new Dog());
+
     }
 }
