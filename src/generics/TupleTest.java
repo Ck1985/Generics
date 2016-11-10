@@ -20,6 +20,9 @@ public class TupleTest {
     static FiveTuple<Vehicle, Amphibian, String, Integer, Double> k(){
         return new FiveTuple<>(new Vehicle(), new Amphibian(), "Hi", 47, 57.35);
     }
+    static SixTuple<String, Integer, Amphibian, Vehicle, Double, Float> l(){
+        return new SixTuple<String, Integer, Amphibian, Vehicle, Double, Float>("Hi", 47, new Amphibian(), new Vehicle(), 47.3, (float)72.34);
+    }
     public static void main(String[] args){
         TwoTuple<String, Integer> twoTuple = f();
         System.out.println(twoTuple);
@@ -27,5 +30,6 @@ public class TupleTest {
         System.out.println(g());
         System.out.println(h());
         System.out.println(k());
+        System.out.println(l());
     }
 }
