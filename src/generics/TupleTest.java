@@ -1,0 +1,23 @@
+package generics;
+
+/**
+ * Created by anonymous on 11/10/2016.
+ */
+class Amphibian{}
+
+class Vehicle{}
+
+public class TupleTest {
+    static TwoTuple<String, Integer> f(){
+        return new TwoTuple<String, Integer>("Hi", 47);
+    }
+    static ThreeTuple<Amphibian, String, Integer> g(){
+        return new ThreeTuple<>(new Amphibian(), "Hi", 47);
+    }
+    static FourTuple<Vehicle, Amphibian, String, Integer> h(){
+        return new FourTuple<>(new Vehicle(), new Amphibian(), "Hi", 47);
+    }
+    static FiveTuple<Vehicle, Amphibian, String, Integer, Double> k(){
+        return new FiveTuple<>(new Vehicle(), new Amphibian(), "Hi", 47, 57.35);
+    }
+}
