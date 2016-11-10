@@ -20,4 +20,12 @@ public class TupleTest {
     static FiveTuple<Vehicle, Amphibian, String, Integer, Double> k(){
         return new FiveTuple<>(new Vehicle(), new Amphibian(), "Hi", 47, 57.35);
     }
+    public static void main(String[] args){
+        TwoTuple<String, Integer> twoTuple = f();
+        System.out.println(twoTuple);
+        // twoTuple.first = "can not change final field";
+        System.out.println(g());
+        System.out.println(h());
+        System.out.println(k());
+    }
 }
