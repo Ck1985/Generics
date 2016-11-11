@@ -5,13 +5,13 @@ package innerclassess;
  */
 import java.util.*;
 
-public class Sequence<T> {
-    public List<T> elements;
+public class Sequence<U> {
+    public List<U> elements;
     private int indexAdd = 0;
     public Sequence(){
-        elements = new ArrayList<T>();
+        elements = new ArrayList<U>();
     }
-    public void add(T objectT){
+    public void add(U objectT){
         elements.add(objectT);
         this.indexAdd++;
     }
@@ -27,7 +27,7 @@ class SequenceSelector<T> implements Selector<T>{
         return indexCurrent++;
     }
 }
-public SequenceSelector<T> selector(){
-    return new SequenceSelector<T>();
+public SequenceSelector<U> selector(){
+    return new SequenceSelector<U>();
 }
 }
