@@ -9,6 +9,9 @@ public class RandomList<T>{
     private ArrayList<T> list = new ArrayList<T>();
     private Random random = new Random(47);
     //Integer indexRandom = random.nextInt(list.size());
+    public ArrayList<T> getList(){
+        return this.list;
+    }
     public T getRandom(){
         return list.get(random.nextInt(list.size()));
     }
