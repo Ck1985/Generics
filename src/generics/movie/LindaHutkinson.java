@@ -15,10 +15,6 @@ public class LindaHutkinson extends BadCharacter implements WomanCharacter {
         return true;
     }
     public String toString(){
-        try {
-            return "Name: " + this.name.getClass().getSimpleName() + " sex: " + this.getClass().getField("sex").toString() + " kind: " + this.getClass().getField("kind").toString() + " id: " + this.id;
-        }catch(NoSuchFieldException e){
-            throw new RuntimeException(e);
-        }
+        return "Name: " + this.getClass().getSimpleName() + " sex: " + WomanCharacter.sex + " kind: " + this.kind +  " id: " + this.id;
     }
 }
