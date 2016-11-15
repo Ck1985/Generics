@@ -23,10 +23,12 @@ public class New {
     public static <T> Queue<T> queue(){
         return new LinkedList<T>();
     }
+    public static void f(Map<Person, List<? extends Pet>> petPeople){}
     public static void main(String[] args){
         Map<String, List<Integer>> map = New.map();
         List<Double> list = New.list();
         LinkedList<Float> iList = New.lList();
         Map<Person, List<? extends Pet>> petPerson = New.map();
+        f(New.map());
     }
 }
