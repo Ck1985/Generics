@@ -4,6 +4,8 @@ package util;
  * Created by anonymous on 11/15/2016.
  */
 import java.util.*;
+import holding.*;
+import typeinfo.pets.*;
 
 public class New {
     public static <K, V> Map<K, V> map(){
@@ -25,5 +27,6 @@ public class New {
         Map<String, List<Integer>> map = New.map();
         List<Double> list = New.list();
         LinkedList<Float> iList = New.lList();
+        Map<Person, List<? extends Pet>> petPerson = New.map();
     }
 }
