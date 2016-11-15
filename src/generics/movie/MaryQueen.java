@@ -18,6 +18,6 @@ public class MaryQueen extends GoodCharacter implements WomanCharacter {
         return false;
     }
     public String toString(){
-        return "Name: " + this.getClass().getSimpleName() + " sex: " + WomanCharacter.sex + " kind: " + this.kind +  " id: " + this.id;
+        return "Name: " + this.getClass().getSimpleName() + " sex: " + MaryQueen.sex + " kind: " + this.kind +  " id: " + this.id;
     }
 }

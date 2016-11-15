@@ -15,6 +15,6 @@ public class TomHatkinson extends BadCharacter implements ManCharacter {
         System.out.println("Tom Hatkinson is dead");
     }
     public String toString(){
-        return "Name: " + this.getClass().getSimpleName() + " sex: " + WomanCharacter.sex + " kind: " + this.kind +  " id: " + this.id;
+        return "Name: " + this.getClass().getSimpleName() + " sex: " + TomHatkinson.sex + " kind: " + this.kind +  " id: " + this.id;
     }
 }

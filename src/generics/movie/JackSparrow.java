@@ -15,6 +15,6 @@ public class JackSparrow extends GoodCharacter implements ManCharacter {
         System.out.println("Jack Sparrow is dead");
     }
     public String toString(){
-        return "Name: " + this.getClass().getSimpleName() + " sex: " + WomanCharacter.sex + " kind: " + this.kind +  " id: " + this.id;
+        return "Name: " + this.getClass().getSimpleName() + " sex: " + JackSparrow.sex + " kind: " + this.kind +  " id: " + this.id;
     }
 }

@@ -15,6 +15,6 @@ public class JimmiCarragher extends GoodCharacter implements ManCharacter {
         System.out.println("Jimmi Carrage is dead");
     }
     public String toString(){
-        return "Name: " + this.getClass().getSimpleName() + " sex: " + WomanCharacter.sex + " kind: " + this.kind +  " id: " + this.id;
+        return "Name: " + this.getClass().getSimpleName() + " sex: " + JimmiCarragher.sex + " kind: " + this.kind +  " id: " + this.id;
     }
 }
