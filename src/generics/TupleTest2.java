@@ -8,6 +8,9 @@ public class TupleTest2 {
     public static TwoTuple<String, Integer> f(){
         return Tuple.tuple("Hi", 47);
     }
+    public static TwoTuple f2(){
+        return Tuple.tuple("Hi f2", 47);
+    }
     public static ThreeTuple<Amphibian, String, Integer> k(){
         return Tuple.tuple(new Amphibian(), "Hi", 47);
     }
@@ -19,15 +22,9 @@ public class TupleTest2 {
     }
     public static void main(String[] args){
         System.out.println(f());
+        System.out.println(f2());
         System.out.println(k());
         System.out.println(h());
         System.out.println(j());
-
-
-
-
-
-
-
     }
 }
