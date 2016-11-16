@@ -18,4 +18,7 @@ public class Tuple {
     public static <T, K, U, V, I> FiveTuple<T, K, U, V, I> tuple(T t, K k, U u, V v, I i){
         return new FiveTuple<T, K, U, V, I>(t, k, u, v, i);
     }
+    public static <T, K, U, V, I, J> SixTuple<T, K, U, V, I, J> tuple(T t, K k, U u, V v, I i, J j){
+        return new SixTuple<T, K, U, V, I, J>(t, k, u, v, i, j);
+    }
 }
