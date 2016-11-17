@@ -22,8 +22,6 @@ public class Sets {
         return resultSet;
     }
     public static <T> Set<T> complement(Set<T> setA, Set<T> setB){
-        Set<T> resultSet = new HashSet<>();
-        resultSet = difference(union(setA, setB), intersection(setA, setB));
-        return resultSet;
+        return difference(union(setA, setB), intersection(setA, setB));
     }
 }
