@@ -24,4 +24,11 @@ public class Sets {
     public static <T> Set<T> complement(Set<T> setA, Set<T> setB){
         return difference(union(setA, setB), intersection(setA, setB));
     }
+    /*
+    ** Test clone() of EnumSet class
+     */
+    /*public static <T extends Enum<T>> EnumSet<T> clone(EnumSet<T> sourceSet){
+        EnumSet<T> result = sourceSet.clone();
+        return result;
+    }*/
 }

@@ -21,5 +21,8 @@ public class WaterColorsSet {
         System.out.println("difference(set1, subset): " + difference(set1, subset));
         System.out.println("difference(set2, subset): " + difference(set2, subset));
         System.out.println("complement(set1, set2): " + complement(set1, set2));
+        EnumSet<WaterColors> set3 = EnumSet.range(ZINC, ORANGE);
+        EnumSet<WaterColors> set4 = EnumSet.range(SAP_GREEN, RAW_UMBER);
+        System.out.println(set3.clone());
     }
 }
