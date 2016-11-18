@@ -23,9 +23,9 @@ class Product{
         price += change;
     }
     public static Generator<Product> generator = new Generator<Product>(){
-        private Random random;
+        private Random random = new Random(47);
         public Product next(){
-            return new Product(random.nextInt(1000), "Test", (random.nextDouble() * 1000.0) + 0.99);
+            return new Product(random.nextInt(1000), "Test", Math.round(random.nextDouble() * 1000.0) + 0.99);
         }
     };
 }
@@ -50,5 +50,20 @@ public class Store extends ArrayList<Aisle>{
         for(int i = 0; i < nAisle; i++){
             this.add(new Aisle(nShelf, nProducts));
         }
+    }
+    public String toString(){
+        StringBuilder stringBuilder = new StringBuilder();
+        for(Aisle aisle : this){
+            for(Shelf shelf : aisle){
+                for(Product product : shelf){
+                    stringBuilder.append(product);
+                    stringBuilder.append("\n");
+                }
+            }
+        }
+        return stringBuilder.toString();
+    }
+    public static void main(String[] args){
+        System.out.println(new Store(5, 12, 30));
     }
 }
