@@ -23,6 +23,6 @@ public class Box<T> {
         integerBox.inspect(new Integer(20));
         // This will not compiled:
         //stringBox.espect("anonymous");
-        //integerBox.espect("anonymous");
+        //integerBox.inspect("anonymous");
     }
 }
