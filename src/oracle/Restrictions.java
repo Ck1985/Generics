@@ -5,6 +5,13 @@ package oracle;
  */
 import java.util.*;
 
+class MathException extends Exception{}
+class QueueFullException extends Throwable{}
+class MyClass<T>{
+    // The static field has type parameyer of class are not allowed
+    // private static T field;
+    // public MyClass<T>[] array = new MyClass<T>[10];
+}
 class Pair3<K, V>{
     private K key;
     private V value;
@@ -22,7 +29,34 @@ class Pair3<K, V>{
         E e = cls.newInstance(); // OK
     }
 }
+// We can use type parameter in throw clause
+class Parse<T extends Exception>{
+    public void parse(Parse parse) throws T{
+        // OK........
+    }
+    // public static void print(List<String> list){}
+    public static void print(List<Integer> list){}
+}
 public class Restrictions{
+    public static <T extends Exception, J> void execute(List<J> list){}
+        /*try{
+            for(J l : list){
+
+            }
+        // }catch(T e){}  Error can not catch instance type parameter
+    }*/
+
+    // we can not create array of parametered type:
+    //Because type erase when compile time, generic type have no all information about type at run time
+    // so we can not use operator instanceof
+    public static <T> void rtti(List<T> list){
+        // if(list instanceof ArrayList<Integer>){} error compile time.
+    }
+    public static void checkType(List<?> list){
+        if(list instanceof ArrayList<?>){
+
+        }
+    }
     public static void main(String[] args){
         // We can't instance a type parameter with primitive type:
         // Pair3<int, char> pair3Primitive = new Pair3<>(3, 'b'); Error
@@ -34,5 +68,6 @@ public class Restrictions{
         }catch(Exception e){
             throw new RuntimeException(e);
         }
+        // List<Integer>[] integerList = new ArrayList<Integer>[10]; Error
     }
 }
