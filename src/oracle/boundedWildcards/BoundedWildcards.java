@@ -6,7 +6,14 @@ package oracle.boundedWildcards;
 import java.util.*;
 
 abstract class Shape{
+    static List<List<? extends Shape>> historyList = new ArrayList<List<? extends Shape>>();
     public abstract void draw(Canvas canvas);
+    public void drawAll(List<? extends Shape> shapeList){
+        historyList.add(shapeList);
+        for(Shape shape : shapeList){
+            // shape.draw(this);
+        }
+    }
 }
 class Rectangle extends Shape{
     private int x, y, width, height;
