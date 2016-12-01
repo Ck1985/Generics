@@ -5,6 +5,7 @@ package oracle.classLiteralAsRunTimeToken;
  */
 import java.util.*;
 
+
 public class CollectionResultQuery {
     public <T> Collection<T> select(Factory<T> factory, String statement){
         Collection<T> resultCollection = new ArrayList<>();
