@@ -20,15 +20,37 @@ class ClassTypeCapture<T>{
     public boolean f(Object object){
         return (this.kind.isInstance(object));
     }
-    public static void addType(String typeName, Class<?> type){
-
+    public void addType(String typeName, Class<?> type){
+        map.put(typeName, type);
     }
-    public static void createNew(String typeName){
-
+    public Object createNew(String typeName) throws IllegalAccessException, InstantiationException{
+        if(map.containsKey(typeName)){
+            return map.get(typeName).newInstance();
+        }else{
+            System.out.println("Sorry, map has not this kind");
+            return null;
+        }
     }
 }
 public class Example21 {
     public static void main(String[] args){
+        ClassTypeCapture<Building> ctt1 = new ClassTypeCapture<>(Building.class);
+        System.out.println(ctt1.f(new Building()));
+        System.out.println(ctt1.f(new House()));
+        ClassTypeCapture<House> ctt2 = new ClassTypeCapture<>(House.class);
+        System.out.println(ctt2.f(new Building()));
+        System.out.println(ctt2.f(new House()));
+        ClassTypeCapture<Building> ct = new ClassTypeCapture<Building>(Building.class, new HashMap<String, Class<?>>());
+        ct.addType("House", House.class);
+        ct.addType("Building", Building.class);
+        System.out.println("ct.map = " + ct.map);
+        try{
+            Building building = (Building)ct.createNew("Building");
+            House house = (House)ct.createNew("House");
+        }catch(IllegalAccessException e){
 
+        }catch(InstantiationException e){
+
+        }
     }
 }
