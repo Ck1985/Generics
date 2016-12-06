@@ -47,6 +47,13 @@ public class Example21 {
         try{
             Building building = (Building)ct.createNew("Building");
             House house = (House)ct.createNew("House");
+            System.out.println("building.getClass().getName(): " + building.getClass().getName());
+            System.out.println("house.getClass().getName(): " + house.getClass().getName());
+            System.out.println("house is instanceof House: " + (house instanceof House));
+            System.out.println("house is instanceof Building: " + (house instanceof Building));
+            System.out.println("building is instanceof House: " + (building instanceof House));
+            System.out.println("building is instanceof Building: " + (building instanceof Building));
+            ct.createNew("anonymous");
         }catch(IllegalAccessException e){
 
         }catch(InstantiationException e){
