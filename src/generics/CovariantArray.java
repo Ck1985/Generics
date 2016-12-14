@@ -20,7 +20,7 @@ public class CovariantArray {
             System.out.println(e);
         }
         try{
-            fruit[1] = new Orange();
+            fruit[1] = new Orange();// ArrayStoreException
         }catch(Exception e){
             System.out.println(e);
         }
