@@ -24,9 +24,22 @@ public class GenericsReading {
     static void f2(){
         Reader<Fruit> fruitReader = new Reader<>();
         Fruit fruit = fruitReader.readExact(fruitList);
-
+        //! Apple apple = fruitReader.readExact(appleList);
+        //readExact(List<Fruit>) can not apply to readExact(List<Apple>)
+    }
+    static class CovarianceReader<T>{
+        T readCovariance(List<? extends T> list){
+            return list.get(0);
+        }
+    }
+    static void f3(){
+        CovarianceReader<Fruit> covarianceReader = new CovarianceReader<>();
+        Fruit fruit = covarianceReader.readCovariance(fruitList);
+        Fruit apple = covarianceReader.readCovariance(appleList);
     }
     public static void main(String[] args){
-
+        f1();
+        f2();
+        f3();
     }
 }
