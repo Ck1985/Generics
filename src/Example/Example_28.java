@@ -3,9 +3,9 @@ package Example;
 /**
  * Created by anonymous on 12/16/2016.
  */
-class Pet{}
-class Cat extends Pet{}
-class Dog extends Pet{}
+class Pet28{}
+class Cat28 extends Pet28{}
+class Dog28 extends Pet28{}
 public class Example_28 {
     static class Generic1<T> {
         private T item;
@@ -27,8 +27,8 @@ public class Example_28 {
     }
     public static void main(String[] args){
         Example_28 ex = new Example_28();
-        ex.f1(new Generic1<Pet>(), new Cat());
-        ex.f2(new Generic2<Cat>());
+        ex.f1(new Generic1<Pet28>(), new Cat28());
+        ex.f2(new Generic2<Cat28>());
     }
 }
 
