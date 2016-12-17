@@ -29,5 +29,14 @@ public class UnboundedWildcards1 {
         assign1(list);
         assign2(list);
         assign3(list);
+        List<String> stringList = new ArrayList<String>();
+        assign1(stringList);
+        assign2(stringList);
+        assign3(stringList);
+        List<?> wildList = new ArrayList();
+        wildList = new ArrayList<String>();
+        assign1(wildList);
+        assign2(wildList);
+        assign3(wildList);
     }
 }
