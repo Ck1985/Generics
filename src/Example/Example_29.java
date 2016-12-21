@@ -9,65 +9,73 @@ import static net.mindview.util.Print.*;
 
 public class Example_29 {
     static void checkHolderList(Holder<List<?>> holderList){
-        printnb("Calling methods for Holder: ");
-        printnb(holderList);
-        printnb("holderList.getValue(): " + holderList.getValue());
+        print("Calling methods for Holder: ");
+        print("Holder: " + holderList);
+        print("holderList.getValue(): " + holderList.getValue());
         print("holderList.setValue(Arrays.asList(1,2,3)): ");
         holderList.setValue(Arrays.asList(1,2,3));
-        printnb("holderList.getValue(): " + holderList.getValue());
+        print("holderList.getValue(): " + holderList.getValue());
         int[] integerArray = {1,2,3};
-        printnb("int[] integerArray = {1,2,3}");
-        printnb("holderList.equals(integerArray): " + holderList.equals(integerArray));
+        print("int[] integerArray = {1,2,3}");
+        print("holderList.equals(integerArray): " + holderList.equals(integerArray));
         List integerList = Arrays.asList(integerArray);
-        printnb("List integerList = Arrays.asList(integerArray): ");
-        printnb("holderList.equals(integerList): " + holderList.equals(integerList));
+        print("List integerList = Arrays.asList(integerArray): ");
+        print("holderList.equals(integerList): " + holderList.equals(integerList));
         List<Integer> l = new ArrayList<Integer>();
         for(int i = 1; i < 4; i++){
             l.add(i);
         }
-        printnb("List<Integer> l = new ArrayList<>() and add 1,2,3");
-        printnb("holderList.equals(list): " + holderList.equals(l));
+        print("List<Integer> l = new ArrayList<>() and add 1,2,3");
+        print("holderList.equals(l): " + holderList.equals(l));
         System.out.println();
 
-        printnb("Calling methods for List:");
-        printnb("Holder: " + holderList);
-        printnb("holderList.getValue().getClass(): " + holderList.getValue().getClass());
+        print("Calling methods for List:");
+        print("Holder: " + holderList);
+        print("holderList.getValue().getClass(): " + holderList.getValue().getClass());
         List<?> list = holderList.getValue();
         // list.add(new Object()); can not add anything
         // Incompatible type:
         // List<? extends Integer> list1 = holderList.getValue();
-        printnb("list: " + list);
+        print("list: " + list);
         List list1 = holderList.getValue();
         // list1.add(new Object()); unchecked warning
-        printnb("list1.getClass(): " + list1.getClass());
-        printnb("list1.equals(list): " + list1.equals(list));
-        printnb("list.contains(1): " + list.contains(1));
+        print("list1.getClass(): " + list1.getClass());
+        print("list1.equals(list): " + list1.equals(list));
+        print("list.contains(1): " + list.contains(1));
         Collection<Integer> c = new HashSet<>();
         for(int i = 1; i < 4; i++){
             c.add(i);
         }
-        printnb("list.containsAll(c): " + list.containsAll(c));
-        printnb("list.equals(c): " + list.equals(c));
-        printnb("list: " + list);
-        printnb("c: " + c);
-        printnb("c.getClass(): " + c.getClass());
-        printnb("list.get(0): " + list.get(0));
-        printnb("list.indexOf(2): "+ list.indexOf(2));
-        printnb("list.hashCode(): " + list.hashCode());
+        print("list.containsAll(c): " + list.containsAll(c));
+        print("list.equals(c): " + list.equals(c));
+        print("list: " + list);
+        print("c: " + c);
+        print("c.getClass(): " + c.getClass());
+        print("list.get(0): " + list.get(0));
+        print("list.indexOf(2): "+ list.indexOf(2));
+        print("list.hashCode(): " + list.hashCode());
         ListIterator listIterator = list.listIterator();
-        printnb("listIterator.next(): " + listIterator.next());
+        print("listIterator.next(): " + listIterator.next());
         //Run time Error: UnsupportOperationException
         // list.remove(1);
         // list.removeAll(c);
         // list.retainAll(c);
         // list.set(1, 9); Compile time error: set(int, ?) can not apply for (int, int)
-        printnb("list.size(): " + list.size());
-        printnb("list.subList(1,2): " + list.subList(1,2));
+        print("list.size(): " + list.size());
+        print("list.subList(1,2): " + list.subList(1,2));
         Object[] oa = list.toArray();
-        printnb("Afyer Object[] oa = list.toArray()");
-        printnb("oa = " + oa);
+        print("After Object[] oa = list.toArray()");
+        print("oa = " + oa);
         for(Object o : oa){
             print(o + " ");
+        }
+        System.out.println();
+        // Double[] doubleList = list.toArray(new Double[3]); Run time error throws ArrayStoreException
+        Number[] numberList = list.toArray(new Number[3]);
+        print("After Number[] numberList = list.toArray(new Number[3]): ");
+        print(numberList);
+        for(Number number : numberList){
+            print(number + " ");
         }
         System.out.println();
     }
@@ -75,6 +83,7 @@ public class Example_29 {
 
     }
     public static void main(String[] args){
-
+        System.out.println("new Holder<List<?>>() Holder: ");
+        checkHolderList(new Holder<List<?>>());
     }
 }
