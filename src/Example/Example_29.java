@@ -80,10 +80,24 @@ public class Example_29 {
         System.out.println();
     }
     static void checkListHolder(List<Holder<?>> listHolder){
-
+        print("Calling methods for List:");
+        print("List: " + listHolder);
+        print("Adding parameter type for Holder class: Integer, String, double \n" +
+              " then adding these Holder class to List");
+        listHolder.add(new Holder<Integer>(1));
+        listHolder.add(new Holder<String>("two"));
+        listHolder.add(new Holder<Double>(3.0));
+        print("List: " + listHolder);
+        print("All elements in List: ");
+        for(Holder<?> holder : listHolder){
+            printnb(holder.getValue() + " ");
+        }
     }
     public static void main(String[] args){
-        System.out.println("new Holder<List<?>>() Holder: ");
-        checkHolderList(new Holder<List<?>>());
+        // System.out.println("new Holder<List<?>>() Holder: ");
+        // checkHolderList(new Holder<List<?>>());
+        System.out.println("List<Holder<?>> list = new List<Holder<?>>()");
+        List<Holder<?>> list = new ArrayList<Holder<?>>();
+        checkListHolder(list);
     }
 }
