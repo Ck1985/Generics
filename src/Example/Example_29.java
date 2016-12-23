@@ -92,6 +92,28 @@ public class Example_29 {
         for(Holder<?> holder : listHolder){
             printnb(holder.getValue() + " ");
         }
+        print("Adding Holder<Float>:");
+        listHolder.add(new Holder<Float>(4.0f));
+        print("List: " + listHolder);
+        print("All elements in List");
+        for(Holder<?> holder : listHolder){
+            printnb(holder.getValue() + " ");
+        }
+        print();
+        print("List cleared: ");
+        listHolder.clear();
+        print("List: " + listHolder);
+        Collection<Holder<?>> collection = new ArrayList<>();
+        collection.add(new Holder<String>("One"));
+        collection.add(new Holder<Float>(2.0F));
+        collection.add(new Holder<Double>(3.0));
+        print("Adding String, float, double");
+        listHolder.addAll(collection);
+        print("List: " + listHolder);
+        for(Holder<?> holder : listHolder){
+            print(" holder.getValue(): " + holder.getClass().getSimpleName() + " " + holder.getValue());
+        }
+        System.out.println();
     }
     public static void main(String[] args){
         // System.out.println("new Holder<List<?>>() Holder: ");
