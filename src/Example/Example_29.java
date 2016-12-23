@@ -114,6 +114,10 @@ public class Example_29 {
             print(" holder.getValue(): " + holder.getClass().getSimpleName() + " " + holder.getValue());
         }
         System.out.println();
+        listHolder.add(new Holder<String>("four"));
+        for(Holder<?> holder : listHolder){
+            print("holder.getValue(): " + holder.getClass().getSimpleName() + " " + holder.getValue());
+        }
     }
     public static void main(String[] args){
         // System.out.println("new Holder<List<?>>() Holder: ");
