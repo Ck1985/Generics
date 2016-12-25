@@ -118,7 +118,39 @@ public class Example_29 {
         for(Holder<?> holder : listHolder){
             print("holder.getValue(): " + holder.getClass().getSimpleName() + " " + holder.getValue());
         }
+        Object listClone = ((ArrayList)listHolder).clone();
+        print("listClone: " + listClone);
+        print("listClone.getClass(): " + listClone.getClass());
+        // ArrayList aListClone = ((ArrayList)listHolder).clone();
+        print("Replacing element with h4, new Holder<Integer>(4)");
+        Holder<Integer> h4 = new Holder<>(4);
+        listHolder.set(3, h4);
+        print("All Elements is List:");
+        for(Holder<?> holder : listHolder){
+            printnb(holder.getClass().getSimpleName() + " " + holder.getValue());
+        }
+        System.out.println();
+        print("listHolder.contains(listHolder.set(3, h4)): " + listHolder.contains(listHolder.set(3, h4)));
+        print("listHolder.contains(4): " + listHolder.contains(4));
+        print("listHolder.contains(h4): " + listHolder.contains(h4));
+        // print(h4.equals(listHolder.get(3)));
+        print("Adding null to List:");
+        listHolder.add(null);
+        print("listHolder.contains(null): " + listHolder.contains(null));
+        print("listHolder.get(0).getValue(): " + listHolder.get(0).getValue());
+        print("listHolder.indexOf(h4): " + listHolder.indexOf(h4));
+        print("listHolder.indexOf(null): " + listHolder.indexOf(null));
+        print("Removing index 0");
+        listHolder.remove(0);
+        for(Holder<?> holder : listHolder){
+            if(holder == null){
+                print(null);
+            }else{
+                print(holder.getClass() + " " + holder.getValue());
+            }
+        }
     }
+
     public static void main(String[] args){
         // System.out.println("new Holder<List<?>>() Holder: ");
         // checkHolderList(new Holder<List<?>>());
