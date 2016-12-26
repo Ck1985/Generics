@@ -7,7 +7,8 @@ import java.util.*;
 import generics.Holder;
 import static net.mindview.util.Print.*;
 
-public class Example_29 {
+public class Example_29 extends ArrayList {
+
     static void checkHolderList(Holder<List<?>> holderList){
         print("Calling methods for Holder: ");
         print("Holder: " + holderList);
@@ -149,6 +150,11 @@ public class Example_29 {
                 print(holder.getClass() + " " + holder.getValue());
             }
         }
+        print("listHolder.isEmpty(): " + listHolder.isEmpty());
+        print("listHolder.lastIndexOf(null): " + listHolder.lastIndexOf(null));
+        ((ArrayList)listHolder).removeRange(2,3);
+        List list = new ArrayList();
+
     }
 
     public static void main(String[] args){
@@ -157,5 +163,11 @@ public class Example_29 {
         System.out.println("List<Holder<?>> list = new List<Holder<?>>()");
         List<Holder<?>> list = new ArrayList<Holder<?>>();
         checkListHolder(list);
+    }
+}
+class SubarrayList extends ArrayList {
+    public void testRemoveRange() {
+        List list = new ArrayList();
+
     }
 }
