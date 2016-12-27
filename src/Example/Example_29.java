@@ -7,8 +7,7 @@ import java.util.*;
 import generics.Holder;
 import static net.mindview.util.Print.*;
 
-public class Example_29 extends ArrayList {
-
+public class Example_29 {
     static void checkHolderList(Holder<List<?>> holderList){
         print("Calling methods for Holder: ");
         print("Holder: " + holderList);
@@ -152,9 +151,49 @@ public class Example_29 extends ArrayList {
         }
         print("listHolder.isEmpty(): " + listHolder.isEmpty());
         print("listHolder.lastIndexOf(null): " + listHolder.lastIndexOf(null));
-        ((ArrayList)listHolder).removeRange(2,3);
-        List list = new ArrayList();
-
+        // removeRange has protected access modifier
+        // ((ArrayList)listHolder).removeRange(2,3);
+        print(listHolder.size());
+        Object[] arrayList = listHolder.toArray();
+        for(int i = 0; i < arrayList.length; i++){
+            printnb(arrayList[i] + " ");
+        }
+        System.out.println();
+        Holder<?>[] holderArray = ((ArrayList<Holder<?>>)listHolder).toArray(new Holder<?>[0]);
+        for(int i = 0; i < holderArray.length; i++){
+            System.out.print(holderArray[i] + " ");
+        }
+        System.out.println();
+        for(Holder<?> holder : holderArray){
+            if(holder == null){
+                print(null);
+            }else {
+                print(holder.getValue() + " ");
+            }
+        }
+        System.out.println();
+        print("Calling methods for Holder<?>: ");
+        for(int i = 0; i < listHolder.size(); i++){
+            if(listHolder.get(i) == null){
+                System.out.print("null ");
+            }else{
+                printnb(listHolder.get(i).getClass().getSimpleName() + " ");
+            }
+        }
+        System.out.println();
+        print("Removing the element 3");
+        listHolder.remove(3);
+        for(Holder<?> holder : listHolder){
+            printnb(holder.getValue() + " ");
+        }
+        System.out.println();
+        Holder<?> h1 = listHolder.get(0);
+        Holder<?> h2 = listHolder.get(1);
+        Holder<?> h3 = listHolder.get(2);
+        print(listHolder.get(0).getClass() + ": " + listHolder.get(0).getValue().getClass().getSimpleName() + ", " + listHolder.get(0).getValue());
+        print(listHolder.get(1).getClass() + ": " + listHolder.get(1).getValue().getClass().getSimpleName() + ", " + listHolder.get(1).getValue());
+        print(listHolder.get(2).getClass() + ": " + listHolder.get(2).getValue().getClass().getSimpleName() + ", " + listHolder.get(2).getValue());
+        // listHolder.set(2, 5);
     }
 
     public static void main(String[] args){
@@ -165,9 +204,4 @@ public class Example_29 extends ArrayList {
         checkListHolder(list);
     }
 }
-class SubarrayList extends ArrayList {
-    public void testRemoveRange() {
-        List list = new ArrayList();
 
-    }
-}
