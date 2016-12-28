@@ -10,5 +10,7 @@
     <orderEntry type="library" name="OwnLibraryTool" level="project" />
     <orderEntry type="module" module-name="OwnLibraryTool" />
     <orderEntry type="library" name="OwnLibraryTool_jar" level="project" />
+    <orderEntry type="library" name="org.apache.commons.collections" level="project" />
+    <orderEntry type="library" name="commons-primitives-1.0" level="project" />
   </component>
 </module>

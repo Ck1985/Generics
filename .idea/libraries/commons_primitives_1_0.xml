@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="commons-primitives-1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../OwnLibraryTool/out/artifacts/OwnLibraryTool_jar/commons-primitives-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
