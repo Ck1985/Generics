@@ -193,7 +193,7 @@ public class Example_29 {
         print(listHolder.get(0).getClass() + ": " + listHolder.get(0).getValue().getClass().getSimpleName() + ", " + listHolder.get(0).getValue());
         print(listHolder.get(1).getClass() + ": " + listHolder.get(1).getValue().getClass().getSimpleName() + ", " + listHolder.get(1).getValue());
         print(listHolder.get(2).getClass() + ": " + listHolder.get(2).getValue().getClass().getSimpleName() + ", " + listHolder.get(2).getValue());
-        // listHolder.set(2, 5); can not set this list abcd
+        // listHolder.set(2, 5); can not set this list new Verson 2016.3
     }
 
     public static void main(String[] args){
