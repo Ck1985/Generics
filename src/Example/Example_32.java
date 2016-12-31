@@ -38,6 +38,6 @@ public class Example_32 {
         for(int i = 0; i < SIZE; i++){
             System.out.print(integerStack.pop() + " ");
         }
-        System.out.println();C
+        System.out.println();
     }
 }
