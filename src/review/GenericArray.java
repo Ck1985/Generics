@@ -21,7 +21,7 @@ public class GenericArray<T> {
     }
     public static void main(String[] args){
         GenericArray<Integer> genericArray = new GenericArray<>(10);
-        // ClassCastException will be thrown...
+        // ClassCastException will be thrown.....
         Integer[] integerArray = genericArray.rep();
         Object[] objectArray = genericArray.rep();
     }
