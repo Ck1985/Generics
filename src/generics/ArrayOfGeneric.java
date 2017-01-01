@@ -11,7 +11,7 @@ public class ArrayOfGeneric {
         //Compile error: Class Cast Exception
         //! gia = (Generics<Integer>[])new Object[SIZE];
         //Run time type is raw (erased) type:
-        gia = new Generics[SIZE];
+        gia = (Generics<Integer>[])new Generics[SIZE];
         System.out.println(gia.getClass().getSimpleName());
         gia[0] = new Generics<Integer>();
         //! gia[1] = new Object(); //Compile -time error
