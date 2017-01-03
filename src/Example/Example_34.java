@@ -13,7 +13,7 @@ abstract class SelfBoundedGeneric<T extends SelfBoundedGeneric<T>>{
 class Derived extends SelfBoundedGeneric<Derived>{
     public Derived get(Derived derived){
         System.out.println("get(Derived derived)");
-        return this;
+        return derived;
     }
 }
 public class Example_34 {
