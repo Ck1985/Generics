@@ -21,3 +21,5 @@ class C2 extends UnSelfBounded<C2>{
         return this.get();
     }
 }
+class D2{}
+class E2 extends UnSelfBounded<D2>{}
