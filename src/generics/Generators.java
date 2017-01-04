@@ -1,5 +1,5 @@
 package generics;
-import generics.myCoffee.*;
+import generics.coffee.*;
 import java.util.*;
 /**
  * Created by anonymous on 11/15/2016.

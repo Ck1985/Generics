@@ -3,8 +3,7 @@ package util;
 /**
  * Created by anonymous on 11/16/2016.
  */
-import java.util.*;
-import generics.myCoffee.*;
+import generics.coffee.*;
 
 public class BasicGenerator<T> implements Generator<T>{
     private Class<T> type;

@@ -3,7 +3,7 @@ package util;
 /**
  * Created by anonymous on 11/16/2016.
  */
-import generics.myCoffee.*;
+import generics.coffee.*;
 public class BasicGeneratorDemo {
     public static void main(String[] args){
         Generator<CountedObject> generator = BasicGenerator.create(CountedObject.class);

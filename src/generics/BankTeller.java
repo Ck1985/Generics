@@ -4,8 +4,7 @@ package generics;
  * Created by Dell Vostro 5459 on 11/18/2016.
  */
 import java.util.*;
-import generics.myCoffee.*;
-import generics.watercolors.*;
+import generics.coffee.*;
 
 class Customer{
     private static long count = 0;

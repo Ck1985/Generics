@@ -1,5 +1,5 @@
 package generics.fibonacy;
-import generics.myCoffee.*;
+import generics.coffee.*;
 
 /**
  * Created by anonymous on 11/13/2016.

@@ -4,7 +4,7 @@ package Example;
  * Created by Dell Vostro 5459 on 11/18/2016.
  */
 import java.util.*;
-import generics.myCoffee.*;
+import generics.coffee.*;
 import generics.*;
 
 class BigFish{

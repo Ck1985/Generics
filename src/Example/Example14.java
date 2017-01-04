@@ -4,7 +4,7 @@ package Example;
  * Created by anonymous on 11/16/2016.
  */
 import util.*;
-import generics.myCoffee.*;
+import generics.coffee.*;
 public class Example14 {
     public static void main(String[] args){
         Generator<CountedObject> generator = new BasicGenerator<>(CountedObject.class);

@@ -1,4 +1,4 @@
-package generics.myCoffee;
+package generics.coffee;
 
 /**
  * Created by anonymous on 11/13/2016.
@@ -7,7 +7,7 @@ import java.util.*;
 
 public class CoffeeGenerator implements Generator<Coffee>, Iterable<Coffee>{
     Random random = new Random(47);
-    private Class[] typesCoffee = {Latte.class, Mocha.class, Cappucino.class, Americano.class, Breeve.class};
+    private Class[] typesCoffee = {Latte.class, Mocha.class, Cappucino.class, Americano.class, Breve.class};
     private int sizeCoffee;
     public CoffeeGenerator(){}
     public CoffeeGenerator(int sizeCoffee){

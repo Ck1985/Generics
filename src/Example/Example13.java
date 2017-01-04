@@ -4,7 +4,7 @@ package Example;
  * Created by anonymous on 11/16/2016.
  */
 import java.util.*;
-import generics.myCoffee.*;
+import generics.coffee.*;
 
 public class Example13 {
     public static <T> Collection<T> fill(Collection<T> coll, Generator<T> gen, int n){
