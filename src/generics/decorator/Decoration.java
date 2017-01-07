@@ -26,10 +26,37 @@ class Decorator extends Basic{
         return this.basic.get();
     }
 }
-class TimeStamped extends Decorator{}
-class SerialNumbered extends Decorator{}
+class TimeStamped extends Decorator{
+    private final long timeStamp;
+    public TimeStamped(Basic basic){
+        super(basic);
+        timeStamp = new Date().getTime();
+    }
+    public long getTimeStamp(){
+        return this.timeStamp;
+    }
+}
+class SerialNumbered extends Decorator{
+    private static long counter = 1;
+    private final long serialNumber = counter++;
+    public SerialNumbered(Basic basic){
+        super(basic);
+    }
+    public long getSerialNumber(){
+        return this.serialNumber;
+    }
+}
 public class Decoration {
     public static void main(String[] args){
-
+        TimeStamped t1 = new TimeStamped(new Basic());
+        TimeStamped t2 = new TimeStamped(new SerialNumbered(new Basic()));
+        t1.getTimeStamp();
+        t2.getTimeStamp();
+        // t2.getSerialNumber(); Error Not available
+        SerialNumbered s1 = new SerialNumbered(new Basic());
+        SerialNumbered s2 = new SerialNumbered(new TimeStamped(new Basic()));
+        s1.getSerialNumber();
+        s2.getSerialNumber();
+        // s2.getTumeStamp(); Error Not available
     }
 }
