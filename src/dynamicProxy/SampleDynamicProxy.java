@@ -5,12 +5,12 @@ package dynamicProxy;
  */
 import java.lang.reflect.*;
 
-class DynamicProxyHandler implements InvocationHandler{
+/*class DynamicProxyHandler implements InvocationHandler{
     private Object proxied;
     public DynamicProxyHandler(Object proxied){
         this.proxied = proxied;
     }
-}
+}*/
 public class SampleDynamicProxy {
     public static void main(String[] args){
 
