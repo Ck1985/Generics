@@ -24,6 +24,12 @@ public class MyDynamicProxyClass implements InvocationHandler{
         }
         //return something .....
     }
+    public static Object newInstance(Object object, Class[] interfaces){
+        return Proxy.newProxyInstance(object.getClass().getClassLoader(), interfaces, new MyDynamicProxyClass(object));
+    }
+    public void f(){
+        MyProxyInterface foo = (MyProxyInterface)newInstance(this.object.getClass().getClassLoader(), new Class[]{MyProxyInterface.class});
+    }
     public static void main(String[] args){
 
     }

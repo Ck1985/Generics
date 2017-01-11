@@ -11,7 +11,7 @@ import java.lang.reflect.*;
         this.proxied = proxied;
     }
 }*/
-public class SampleDynamicProxy {
+public class SimpleDynamicProxy {
     public static void main(String[] args){
 
     }
