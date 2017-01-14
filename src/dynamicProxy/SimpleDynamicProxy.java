@@ -20,7 +20,7 @@ class DynamicProxyHandler implements InvocationHandler{
         return method.invoke(proxied, args);
     }
 }
-public class SampleDynamicProxy {
+public class SimpleDynamicProxy {
     public static void consumer(Interface inter){
         inter.doSomething();
         inter.doSomethingElse("anonymous");
