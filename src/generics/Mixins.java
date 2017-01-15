@@ -27,6 +27,18 @@ class SerialNumberIMP implements SerialNumbered{
         return this.serialNumber;
     }
 }
+interface Colored3{
+    String getColor();
+}
+class Color3 implements Colored3{
+    private String nameColor = "red";
+    public void setColor(String name){
+        nameColor = name;
+    }
+    public String getColor(){
+        return this.nameColor;
+    }
+}
 interface Basic{
     void set(String value);
     String get();
@@ -40,14 +52,18 @@ class BasicIMP implements Basic{
         return this.value;
     }
 }
-class Mixin extends BasicIMP implements TimeStamped, SerialNumbered{
+class Mixin extends BasicIMP implements TimeStamped, SerialNumbered, Colored3{
     private TimeStamped timeStamped = new TimeStampedIMP();
     private SerialNumbered serialNumbered = new SerialNumberIMP();
+    private Colored3 colored3 = new Color3();
     public long getStamp(){
         return timeStamped.getStamp();
     }
     public long getSerialNumber(){
         return serialNumbered.getSerialNumber();
+    }
+    public String getColor(){
+        return colored3.getColor();
     }
 }
 public class Mixins {
