@@ -27,7 +27,7 @@ class SerialNumberIMP implements SerialNumbered{
         return this.serialNumber;
     }
 }
-interface Colored3{
+/*interface Colored3{
     String getColor();
 }
 class Color3 implements Colored3{
@@ -38,7 +38,7 @@ class Color3 implements Colored3{
     public String getColor(){
         return this.nameColor;
     }
-}
+}*/
 interface Basic{
     void set(String value);
     String get();

@@ -32,7 +32,7 @@ interface Basic{
     void set(String value);
     String get();
 }
-class BasicIMP{
+class BasicIMP implements Basic{
     private String value;
     public void set(String value){
         this.value = value;
