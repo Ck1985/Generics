@@ -47,14 +47,14 @@ class AppTest{
         for(int i = 0; i < 10; i++){
             shapes.add(new Shape());
         }
-        Apply.apply(shapes, shapes.getClass().getMethod("rotate"));
-        Apply.apply(shapes, shapes.getClass().getMethod("resize", int.class), 5);
+        Apply.apply(shapes, Shape.class.getMethod("rotate"));
+        Apply.apply(shapes, Shape.class.getMethod("resize", int.class), 5);
         List<Square> squares = new ArrayList<>();
         for(int i = 0; i < 10; i++){
             squares.add(new Square());
         }
-        Apply.apply(squares, squares.getClass().getMethod("rotate"));
-        Apply.apply(squares, squares.getClass().getMethod("resize", int.class), 5);
+        Apply.apply(squares, Shape.class.getMethod("rotate"));
+        Apply.apply(squares, Square.class.getMethod("resize", int.class), 5);
 
         Apply.apply(new FilledList<Shape>(Shape.class, 10), Shape.class.getMethod("rotate"));
         Apply.apply(new FilledList<Square>(Square.class, 10), Square.class.getMethod("rotate"));
