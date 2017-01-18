@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_generics" default="compile.module.generics">
+  <dirname property="module.generics.basedir" file="${ant.file.module_generics}"/>
+  
+  <property name="module.jdk.home.generics" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.generics" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.generics" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.generics" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="generics.output.dir" value="${module.generics.basedir}/out/production/Generics"/>
+  <property name="generics.testoutput.dir" value="${module.generics.basedir}/out/test/Generics"/>
+  
+  <path id="generics.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="generics.module.production.classpath">
+    <path refid="${module.jdk.classpath.generics}"/>
+    <path refid="library.ownlibrarytool_jar.classpath"/>
+  </path>
+  
+  <path id="generics.runtime.production.module.classpath">
+    <pathelement location="${generics.output.dir}"/>
+    <path refid="library.ownlibrarytool_jar.classpath"/>
+  </path>
+  
+  <path id="generics.module.classpath">
+    <path refid="${module.jdk.classpath.generics}"/>
+    <pathelement location="${generics.output.dir}"/>
+    <path refid="library.ownlibrarytool_jar.classpath"/>
+  </path>
+  
+  <path id="generics.runtime.module.classpath">
+    <pathelement location="${generics.testoutput.dir}"/>
+    <pathelement location="${generics.output.dir}"/>
+    <path refid="library.ownlibrarytool_jar.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.generics">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.generics">
+    <patternset refid="excluded.from.module.generics"/>
+  </patternset>
+  
+  <path id="generics.module.sourcepath">
+    <dirset dir="${module.generics.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.generics" depends="compile.module.generics.production,compile.module.generics.tests" description="Compile module Generics"/>
+  
+  <target name="compile.module.generics.production" depends="register.custom.compilers" description="Compile module Generics; production classes">
+    <mkdir dir="${generics.output.dir}"/>
+    <javac2 destdir="${generics.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.generics}/javac">
+      <compilerarg line="${compiler.args.generics}"/>
+      <bootclasspath refid="generics.module.bootclasspath"/>
+      <classpath refid="generics.module.production.classpath"/>
+      <src refid="generics.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.generics"/>
+    </javac2>
+    
+    <copy todir="${generics.output.dir}">
+      <fileset dir="${module.generics.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.generics.tests" depends="register.custom.compilers,compile.module.generics.production" description="compile module Generics; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.generics" description="cleanup module">
+    <delete dir="${generics.output.dir}"/>
+    <delete dir="${generics.testoutput.dir}"/>
+  </target>
+</project>
