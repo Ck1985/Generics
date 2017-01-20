@@ -25,7 +25,7 @@ public class Functional {
         if(iterator.hasNext()){
             T result = iterator.next();
             while(iterator.hasNext()){
-                combiner.combine(result, iterator.next());
+                result = combiner.combine(result, iterator.next());
             }
             return result;
         }
@@ -88,7 +88,7 @@ public class Functional {
             return x.compareTo(this.bound) > 0;
         }
     }
-    static class MultilIntegercollector<T> implements Collector<Integer>{
+    static class MultilIntegercollector implements Collector<Integer>{
         private Integer val = 1;
         public Integer function(Integer x){
             return val *= x;
@@ -98,6 +98,15 @@ public class Functional {
         }
     }
     public static void main(String[] args){
+        List<Integer> li = Arrays.asList(1,2,3,4,5,6,7);
+        Integer result = reduce(li, new IntegerAdder());
+        System.out.println(result);
+        result = reduce(li, new IntegerSubtracter());
+        System.out.println(result);
+        System.out.println(filter(li, new GreaterThan<Integer>(3)));
+        System.out.println(forEach(li, new MultilIntegercollector()).result());
+        System.out.println(forEach(filter(li, new GreaterThan<>(3)), new MultilIntegercollector()).result());
 
+        MathContext mc = new MathContext();
     }
 }
