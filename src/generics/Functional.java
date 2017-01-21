@@ -69,6 +69,11 @@ public class Functional {
             return x.add(y);
         }
     }
+    static class BigIntegerAdder implements Combiner<BigInteger>{
+        public BigInteger combine(BigInteger x, BigInteger y){
+            return x.add(y);
+        }
+    }
     static class AtomicLongAdder implements Combiner<AtomicLong>{
         public AtomicLong combine(AtomicLong x, AtomicLong y){
             return new AtomicLong(x.addAndGet(y.get()));
@@ -107,6 +112,28 @@ public class Functional {
         System.out.println(forEach(li, new MultilIntegercollector()).result());
         System.out.println(forEach(filter(li, new GreaterThan<>(3)), new MultilIntegercollector()).result());
 
-        MathContext mc = new MathContext();
+        MathContext mc = new MathContext(7);
+        List<BigDecimal> lbd = Arrays.asList(
+                new BigDecimal(1.1, mc), new BigDecimal(2.2, mc),
+                new BigDecimal(3.3, mc), new BigDecimal(4.4, mc)
+        );
+        System.out.println(reduce(lbd, new BigDecimalAdder()));
+        System.out.println(filter(lbd, new GreaterThan<BigDecimal>(new BigDecimal(3))));
+        List<BigInteger> lbi = new ArrayList<BigInteger>();
+        BigInteger bi = BigInteger.valueOf(11);
+        for(int i = 0; i < 11; i++){
+            lbi.add(bi);
+            bi = bi.nextProbablePrime();
+        }
+        System.out.println(lbi);
+        System.out.println(reduce(lbi, new BigIntegerAdder()));
+        System.out.println(reduce(lbi, new BigIntegerAdder()).isProbablePrime(5));
+
+        List<AtomicLong> la = Arrays.asList(
+                new AtomicLong(11), new AtomicLong(47),
+                new AtomicLong(74), new AtomicLong(133)
+        );
+        AtomicLong ral = reduce(la, new AtomicLongAdder());
+        System.out.println(transform(lbd, new BigDecimalUlp()));
     }
 }
